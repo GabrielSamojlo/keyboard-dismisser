@@ -8,7 +8,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 24
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
     }
     buildTypes {
         release {
@@ -24,3 +24,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
 }
+
+ext {
+    PUBLISH_GROUP_ID = 'com.gabrielsamojlo.keyboarddismisser'
+
+    PUBLISH_ARTIFACT_ID = 'keyboard-dismisser'
+
+    PUBLISH_VERSION = '1.0.1'
+}
+
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingCoordinatorLayout;
 import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingLinearLayout;
@@ -45,6 +46,7 @@ public class KeyboardDismisser {
         switch (className) {
             case "LinearLayout":
                 generatedLayout = new KeyboardDismissingLinearLayout(activity);
+                ((LinearLayout) generatedLayout).setOrientation(((LinearLayout) viewGroup).getOrientation());
                 ((KeyboardDismissingLinearLayout) generatedLayout).setActivity(activity);
                 break;
             case "RelativeLayout":
@@ -71,6 +73,5 @@ public class KeyboardDismisser {
 
         viewGroup.removeAllViews();
         viewGroup.addView(generatedLayout, 0);
-
     }
 }

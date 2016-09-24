@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gabrielsamojlo.dismisser.MainFragment">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Relative Layout"
+        android:id="@+id/relative_btn"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Linear Layout"
+        android:id="@+id/linear_btn"
+        android:layout_below="@+id/relative_btn"
+        android:layout_alignRight="@+id/relative_btn"
+        android:layout_alignEnd="@+id/relative_btn"
+        android:layout_marginTop="32dp"
+        android:layout_alignLeft="@+id/relative_btn"
+        android:layout_alignStart="@+id/relative_btn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coordinator Layout"
+        android:id="@+id/coordinator_btn"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/linear_btn"
+        android:layout_alignStart="@+id/linear_btn"
+        android:layout_alignRight="@+id/linear_btn"
+        android:layout_alignEnd="@+id/linear_btn" />
+
+</RelativeLayout>
