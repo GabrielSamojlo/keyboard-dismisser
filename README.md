@@ -1,4 +1,5 @@
-# Keyboard Dismisser
+# Keyboard Dismisser 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Keyboard%20Dismisser-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4437)
 
 ### What is this?
 
