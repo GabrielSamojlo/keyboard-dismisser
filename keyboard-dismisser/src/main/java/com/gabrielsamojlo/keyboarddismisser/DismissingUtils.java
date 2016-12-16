@@ -25,13 +25,15 @@ public class DismissingUtils {
         FrameLayout content = (FrameLayout) activity.findViewById(android.R.id.content);
         final View contentView = content.getChildAt(0);
 
-        contentView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        final View view = (contentView != null) ? contentView : content;
+
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
 
                 Rect r = new Rect();
-                contentView.getWindowVisibleDisplayFrame(r);
-                int screenHeight = contentView.getRootView().getHeight();
+                view.getWindowVisibleDisplayFrame(r);
+                int screenHeight = view.getRootView().getHeight();
                 int keypadHeight = screenHeight - r.bottom;
 
                 if (keyboardListener != null) {

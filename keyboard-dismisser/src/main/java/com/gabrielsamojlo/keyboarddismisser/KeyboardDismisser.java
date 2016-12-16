@@ -2,6 +2,7 @@ package com.gabrielsamojlo.keyboarddismisser;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -13,12 +14,15 @@ import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissing
 
 public class KeyboardDismisser {
 
-    private static String[] sSupportedLayouts = new String[] {"LinearLayout", "RelativeLayout", "CoordinatorLayout"};
+    private static Fragment sFragment;
+
+    private static String[] sSupportedClasses = new String[] {"LinearLayout", "RelativeLayout", "CoordinatorLayout"};
 
     public static void useWith(Fragment fragment) {
-        ViewGroup viewGroup = (ViewGroup) fragment.getView();
+        sFragment = fragment;
+        ViewGroup viewGroup = (ViewGroup) sFragment.getView();
 
-        swapMainLayoutWithDismissingLayout(viewGroup, fragment.getActivity());
+        swapMainLayoutWithDismissingLayout(viewGroup, sFragment.getActivity());
     }
 
     public static void useWith(Activity activity) {
@@ -34,8 +38,9 @@ public class KeyboardDismisser {
         }
 
         String className = "";
+
         String viewGroupClassName = viewGroup.getClass().getSimpleName();
-        for (String name : sSupportedLayouts) {
+        for (String name : sSupportedClasses) {
             if (viewGroupClassName.equals(name)) {
                 className = name;
             }
@@ -46,7 +51,6 @@ public class KeyboardDismisser {
         switch (className) {
             case "LinearLayout":
                 generatedLayout = new KeyboardDismissingLinearLayout(activity);
-                ((LinearLayout) generatedLayout).setOrientation(((LinearLayout) viewGroup).getOrientation());
                 ((KeyboardDismissingLinearLayout) generatedLayout).setActivity(activity);
                 break;
             case "RelativeLayout":
@@ -62,7 +66,9 @@ public class KeyboardDismisser {
             return;
         }
 
-        generatedLayout.setLayoutParams(viewGroup.getLayoutParams());
+        if (viewGroup.getLayoutParams() != null) {
+            generatedLayout.setLayoutParams(viewGroup.getLayoutParams());
+        }
 
         while (viewGroup.getChildCount() != 0) {
             View child = viewGroup.getChildAt(0);
