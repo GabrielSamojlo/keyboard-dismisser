@@ -14,15 +14,12 @@ import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissing
 
 public class KeyboardDismisser {
 
-    private static Fragment sFragment;
-
     private static String[] sSupportedClasses = new String[] {"LinearLayout", "RelativeLayout", "CoordinatorLayout"};
 
     public static void useWith(Fragment fragment) {
-        sFragment = fragment;
-        ViewGroup viewGroup = (ViewGroup) sFragment.getView();
+        ViewGroup viewGroup = (ViewGroup) fragment.getView();
 
-        swapMainLayoutWithDismissingLayout(viewGroup, sFragment.getActivity());
+        swapMainLayoutWithDismissingLayout(viewGroup, fragment.getActivity());
     }
 
     public static void useWith(Activity activity) {
