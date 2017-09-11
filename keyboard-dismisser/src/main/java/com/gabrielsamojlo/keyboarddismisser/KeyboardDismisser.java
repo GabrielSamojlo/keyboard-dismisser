@@ -8,13 +8,19 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingConstraintLayout;
 import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingCoordinatorLayout;
 import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingLinearLayout;
 import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingRelativeLayout;
 
 public class KeyboardDismisser {
 
-    private static String[] sSupportedClasses = new String[] {"LinearLayout", "RelativeLayout", "CoordinatorLayout"};
+    private static String[] sSupportedClasses = new String[] {
+            "LinearLayout",
+            "RelativeLayout",
+            "CoordinatorLayout",
+            "ConstraintLayout"
+    };
 
     public static void useWith(Fragment fragment) {
         ViewGroup viewGroup = (ViewGroup) fragment.getView();
@@ -57,6 +63,10 @@ public class KeyboardDismisser {
             case "CoordinatorLayout":
                 generatedLayout = new KeyboardDismissingCoordinatorLayout(activity);
                 ((KeyboardDismissingCoordinatorLayout) generatedLayout).setActivity(activity);
+                break;
+            case "ConstraintLayout":
+                generatedLayout = new KeyboardDismissingConstraintLayout(activity);
+                ((KeyboardDismissingConstraintLayout) generatedLayout).setActivity(activity);
         }
 
         if (className.isEmpty()) {
