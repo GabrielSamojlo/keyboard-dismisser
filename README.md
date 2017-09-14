@@ -5,7 +5,7 @@
 
 Keyboard Dismisser is a simple library that allows you to dismiss keyboard by tapping anywhere outside it.
 
-Currently supported root layouts of activities or fragments are : CoordinatorLayout, LinearLayout and RelativeLayout.
+Currently supported root layouts of activities or fragments are : CoordinatorLayout, LinearLayout, RelativeLayout and ConstraintLayout.
 
 ![Demo](http://i.giphy.com/l3vRavNL0aQfL2tva.gif)
 
@@ -15,7 +15,7 @@ Add Keyboard Dismisser as a dependency in your app level ```build.gradle``` file
 
 ```gradle
 dependencies {
-    compile 'com.gabrielsamojlo.keyboarddismisser:keyboard-dismisser:1.0.1'
+    compile 'com.gabrielsamojlo.keyboarddismisser:keyboard-dismisser:1.2.0'
 }
 
 ```
@@ -45,6 +45,10 @@ For fragments, you should place it in ```onViewCreated``` :
         KeyboardDismisser.useWith(this);
     }
 ```
+
+### Changelog
+
+* 1.2.0 (14/09/2017) - Added support for Constraint Layout (by [Maciej Iwaniuk](https://github.com/Evanuke))
 
 ### Support, contact and contribution
 
