@@ -12,6 +12,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private Button mRelativeBtn;
     private Button mLinearBtn;
     private Button mCoordinatorBtn;
+    private Button mConstraintBtn;
 
     private MainActivity mActivity;
 
@@ -26,10 +27,12 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         mRelativeBtn = (Button) view.findViewById(R.id.relative_btn);
         mLinearBtn = (Button) view.findViewById(R.id.linear_btn);
         mCoordinatorBtn = (Button) view.findViewById(R.id.coordinator_btn);
+        mConstraintBtn = (Button) view.findViewById(R.id.constraint_btn);
 
         mRelativeBtn.setOnClickListener(this);
         mLinearBtn.setOnClickListener(this);
         mCoordinatorBtn.setOnClickListener(this);
+        mConstraintBtn.setOnClickListener(this);
 
         return view;
     }
@@ -44,6 +47,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             fragment = new LinearLayoutFragment();
         } else if (view == mCoordinatorBtn) {
             fragment = new CoordinatorLayoutFragment();
+        } else if (view == mConstraintBtn) {
+            fragment = new ConstraintLayoutFragment();
         }
 
         if (fragment != null) {
