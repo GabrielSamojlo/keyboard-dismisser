@@ -79,8 +79,13 @@ public class KeyboardDismisser {
         }
 
         if (generatedLayout instanceof KeyboardDismissingConstraintLayout) {
-            int widthOfOriginalLayout = viewGroup.getLayoutParams().width;
-            int heightOfOriginalLayout = viewGroup.getLayoutParams().height;
+            int widthOfOriginalLayout = ConstraintLayout.LayoutParams.MATCH_PARENT;
+            int heightOfOriginalLayout = ConstraintLayout.LayoutParams.MATCH_PARENT;
+
+            if (viewGroup.getLayoutParams() != null) {
+                widthOfOriginalLayout = viewGroup.getLayoutParams().width;
+                heightOfOriginalLayout = viewGroup.getLayoutParams().height;
+            }
 
             ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(widthOfOriginalLayout, heightOfOriginalLayout);
             layoutParams.validate();
