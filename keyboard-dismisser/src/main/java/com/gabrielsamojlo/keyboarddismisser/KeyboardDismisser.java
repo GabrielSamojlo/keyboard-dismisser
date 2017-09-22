@@ -1,12 +1,13 @@
 package com.gabrielsamojlo.keyboarddismisser;
 
 import android.app.Activity;
+
+import android.support.constraint.ConstraintLayout;
+
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingConstraintLayout;
 import com.gabrielsamojlo.keyboarddismisser.dismissinglayouts.KeyboardDismissingCoordinatorLayout;
@@ -75,6 +76,16 @@ public class KeyboardDismisser {
 
         if (viewGroup.getLayoutParams() != null) {
             generatedLayout.setLayoutParams(viewGroup.getLayoutParams());
+        }
+
+        if (generatedLayout instanceof KeyboardDismissingConstraintLayout) {
+            int widthOfOriginalLayout = viewGroup.getLayoutParams().width;
+            int heightOfOriginalLayout = viewGroup.getLayoutParams().height;
+
+            ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(widthOfOriginalLayout, heightOfOriginalLayout);
+            layoutParams.validate();
+
+            generatedLayout.setLayoutParams(layoutParams);
         }
 
         while (viewGroup.getChildCount() != 0) {
