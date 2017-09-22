@@ -16,7 +16,7 @@ Add Keyboard Dismisser as a dependency in your app level ```build.gradle``` file
 
 ```gradle
 dependencies {
-    compile 'com.gabrielsamojlo.keyboarddismisser:keyboard-dismisser:1.2.0'
+    compile 'com.gabrielsamojlo.keyboarddismisser:keyboard-dismisser:1.2.1'
 }
 
 ```
