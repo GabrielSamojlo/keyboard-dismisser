@@ -1,5 +1,6 @@
 # Keyboard Dismisser 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Keyboard%20Dismisser-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4437)
+[ ![Download](https://api.bintray.com/packages/gabrielsamojlo/KeyboardDismisser/keyboard-dismisser/images/download.svg) ](https://bintray.com/gabrielsamojlo/KeyboardDismisser/keyboard-dismisser/_latestVersion)
 
 ### What is this?
 
@@ -49,6 +50,7 @@ For fragments, you should place it in ```onViewCreated``` :
 ### Changelog
 
 * 1.2.0 (14/09/2017) - Added support for Constraint Layout (by [Maciej Iwaniuk](https://github.com/Evanuke))
+* 1.2.1 (22/09/2016) - Resolved resizing layout when Constraint Layout is set to MATCH_PARENT
 
 ### Support, contact and contribution
 
