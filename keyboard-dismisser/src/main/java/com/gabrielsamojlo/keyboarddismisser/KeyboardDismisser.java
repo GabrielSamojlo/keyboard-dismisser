@@ -76,6 +76,8 @@ public class KeyboardDismisser {
 
         if (viewGroup.getLayoutParams() != null) {
             generatedLayout.setLayoutParams(viewGroup.getLayoutParams());
+        } else {
+            generatedLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         }
 
         if (generatedLayout instanceof KeyboardDismissingConstraintLayout) {
