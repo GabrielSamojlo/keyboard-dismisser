@@ -36,6 +36,10 @@ public class KeyboardDismisser {
         swapMainLayoutWithDismissingLayout(viewGroup, activity);
     }
 
+    public static void useWith(ViewGroup viewGroup, Activity activity) {
+        swapMainLayoutWithDismissingLayout(viewGroup, activity);
+    }
+
     private static void swapMainLayoutWithDismissingLayout(ViewGroup viewGroup, Activity activity) {
         if (viewGroup == null) {
             return;
