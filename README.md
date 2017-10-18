@@ -16,7 +16,7 @@ Add Keyboard Dismisser as a dependency in your app level ```build.gradle``` file
 
 ```gradle
 dependencies {
-    compile 'com.gabrielsamojlo.keyboarddismisser:keyboard-dismisser:1.2.3'
+    compile 'com.gabrielsamojlo.keyboarddismisser:keyboard-dismisser:1.3.0'
 }
 
 ```
@@ -50,8 +50,9 @@ For fragments, you should place it in ```onViewCreated``` :
 ### Changelog
 
 * 1.2.0 (14/09/2017) - Added support for Constraint Layout (by [Maciej Iwaniuk](https://github.com/Evanuke))
-* 1.2.2 (22/09/2016) - Resolved resizing layout when Constraint Layout is set to MATCH_PARENT
-* 1.2.3 (25/09/2016) - When unset, default size of layout is set to MATCH_PARENT now to avoid resizing of layouts
+* 1.2.2 (22/09/2017) - Resolved resizing layout when Constraint Layout is set to MATCH_PARENT
+* 1.2.3 (25/09/2017) - When unset, default size of layout is set to MATCH_PARENT now to avoid resizing of layouts
+* 1.3.0 (18/10/2017) - Added support for custom views
 
 ### Support, contact and contribution
 
