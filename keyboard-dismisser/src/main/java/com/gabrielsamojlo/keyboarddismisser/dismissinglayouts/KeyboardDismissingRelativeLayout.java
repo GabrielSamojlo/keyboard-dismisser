@@ -46,7 +46,7 @@ public class KeyboardDismissingRelativeLayout extends RelativeLayout implements 
             DismissingUtils.hideKeyboard(mActivity);
         }
 
-        return super.dispatchTouchEvent(ev);
+        return wasDispatched;
     }
 
     private void setupKeyboardListener() {

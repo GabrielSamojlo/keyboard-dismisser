@@ -34,7 +34,7 @@ public class KeyboardDismissingCoordinatorLayout extends CoordinatorLayout imple
             DismissingUtils.hideKeyboard(mActivity);
         }
 
-        return super.dispatchTouchEvent(ev);
+        return wasDispatched;
     }
 
     private void setupKeyboardListener() {

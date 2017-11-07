@@ -53,6 +53,7 @@ For fragments, you should place it in ```onViewCreated``` :
 * 1.2.2 (22/09/2017) - Resolved resizing layout when Constraint Layout is set to MATCH_PARENT
 * 1.2.3 (25/09/2017) - When unset, default size of layout is set to MATCH_PARENT now to avoid resizing of layouts
 * 1.3.0 (18/10/2017) - Added support for custom views
+* 1.3.1 (07/11/2017) - Resolved issue with dispatching event twice to some of dependent views
 
 ### Support, contact and contribution
 

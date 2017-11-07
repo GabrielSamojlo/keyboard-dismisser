@@ -41,7 +41,7 @@ public class KeyboardDismissingLinearLayout extends LinearLayout implements Keyb
             DismissingUtils.hideKeyboard(mActivity);
         }
 
-        return super.dispatchTouchEvent(ev);
+        return wasDispatched;
     }
 
     private void setupKeyboardListener() {
