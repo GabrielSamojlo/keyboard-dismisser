@@ -1,9 +1,7 @@
 package com.gabrielsamojlo.keyboarddismisser;
 
 import android.app.Activity;
-
 import android.support.constraint.ConstraintLayout;
-
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,19 +57,15 @@ public class KeyboardDismisser {
         switch (className) {
             case "LinearLayout":
                 generatedLayout = new KeyboardDismissingLinearLayout(activity);
-                ((KeyboardDismissingLinearLayout) generatedLayout).setActivity(activity);
                 break;
             case "RelativeLayout":
                 generatedLayout = new KeyboardDismissingRelativeLayout(activity);
-                ((KeyboardDismissingRelativeLayout) generatedLayout).setActivity(activity);
                 break;
             case "CoordinatorLayout":
                 generatedLayout = new KeyboardDismissingCoordinatorLayout(activity);
-                ((KeyboardDismissingCoordinatorLayout) generatedLayout).setActivity(activity);
                 break;
             case "ConstraintLayout":
                 generatedLayout = new KeyboardDismissingConstraintLayout(activity);
-                ((KeyboardDismissingConstraintLayout) generatedLayout).setActivity(activity);
         }
 
         if (className.isEmpty()) {

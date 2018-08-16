@@ -1,6 +1,5 @@
 package com.gabrielsamojlo.keyboarddismisser.dismissinglayouts;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
@@ -9,10 +8,10 @@ import android.view.MotionEvent;
 import com.gabrielsamojlo.keyboarddismisser.DismissingUtils;
 import com.gabrielsamojlo.keyboarddismisser.KeyboardListener;
 
-public class KeyboardDismissingCoordinatorLayout extends CoordinatorLayout implements KeyboardListener {
+public class KeyboardDismissingCoordinatorLayout extends CoordinatorLayout {
 
-    private Activity mActivity;
     private boolean mIsKeyboardVisible;
+    private KeyboardListener mKeyboardListener;
 
     public KeyboardDismissingCoordinatorLayout(Context context) {
         super(context);
@@ -31,23 +30,30 @@ public class KeyboardDismissingCoordinatorLayout extends CoordinatorLayout imple
         boolean wasDispatched = super.dispatchTouchEvent(ev);
 
         if (!wasDispatched && mIsKeyboardVisible) {
-            DismissingUtils.hideKeyboard(mActivity);
+            DismissingUtils.hideKeyboard(this);
         }
 
         return wasDispatched;
     }
 
-    private void setupKeyboardListener() {
-        DismissingUtils.setupKeyboardListener(mActivity, this);
-    }
 
-    public void setActivity(Activity activity) {
-        mActivity = activity;
-        setupKeyboardListener();
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        mKeyboardListener = new KeyboardListener() {
+            @Override
+            public void onKeyboardVisibilityChanged(boolean isVisible) {
+                mIsKeyboardVisible = isVisible;
+            }
+        };
+
+        DismissingUtils.setupKeyboardListener(this, mKeyboardListener);
     }
 
     @Override
-    public void onKeyboardVisibilityChanged(boolean isVisible) {
-        mIsKeyboardVisible = isVisible;
+    public void onDetachedFromWindow() {
+        DismissingUtils.removeKeyboardListener(this, mKeyboardListener);
+        mKeyboardListener = null;
+        super.onDetachedFromWindow();
     }
 }
